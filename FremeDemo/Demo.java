@@ -1,13 +1,29 @@
 package FremeDemo;
 import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.Button;
 
 public class Demo {
+	
+	Frame frame = new Frame("ㅎㅎㅎ");
+	Button button = new Button("ㅋㅋㅋ");
+	
+	public void createFrame()
+	{
+		frame.add(button);
+		frame.setSize(300, 300);
+		frame.setVisible(true);
+		frame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+	}
+	
 	public static void main(String[] args)
 	{
-		Frame 프레임1 = new Frame();
-		
-		프레임1.setTitle("프레임 예제");
-		프레임1.setSize(300, 300);
-		프레임1.setVisible(true);
+		Demo demo = new Demo();
+		demo.createFrame();
 	}
 }
